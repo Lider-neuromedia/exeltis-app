@@ -1,0 +1,98 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Productos </ion-title>
+    <img class="logo-header" src="/assets/imgs/logo-header.png" alt="">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row>
+
+        <!-- Filtros de Búsqueda -->
+        <ion-col col-12 col-sm-10 offset-sm-1>
+
+          <ion-list no-lines class="filtros">
+
+            <ion-grid>
+              <ion-row>
+
+                <ion-col col-12 col-sm-6 col-lg-3>
+
+                  <ion-item>
+                    <ion-label> Línea </ion-label>
+                    <ion-select [(ngModel)]="filtro.linea" interface="action-sheet">
+                      <ion-option *ngFor="let linea of lineas" [value]="linea.id"> {{ linea.nombre }} </ion-option>          
+                    </ion-select>
+                  </ion-item>
+
+                </ion-col>
+
+                <ion-col col-12 col-sm-6 col-lg-3>
+
+                  <ion-item>
+                    <ion-label> Categoria </ion-label>
+                    <ion-select [(ngModel)]="filtro.categoria" interface="action-sheet">
+                      <ion-option *ngFor="let categoria of categorias" [value]="categoria.id"> {{ categoria.nombre }} </ion-option>          
+                    </ion-select>
+                  </ion-item>
+
+                </ion-col>
+
+                <ion-col col-12 col-sm-6 col-lg-3>
+
+                  <ion-item>
+                    <ion-input [(ngModel)]="filtro.busqueda" placeholder="Producto" type="text"></ion-input>
+                  </ion-item>
+
+                </ion-col>
+
+                <ion-col col-12 col-sm-6 col-lg-3>
+
+                  <ion-item class="botones-filtro">                    
+                    <button (click)="buscar()" round ion-button> Buscar </button>                    
+                    <button (click)="limpiarFiltro()" round ion-button> Limpiar </button>
+                  </ion-item>                  
+
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          
+          </ion-list>
+
+        </ion-col>
+
+        <!-- Información Paginación -->
+        <ion-col col-12>
+          <div *ngIf="productos" class="progress">
+            <div [ngStyle]="{'width': paginationProgress}"></div>
+          </div>
+          <p class="infoPaginacion"> pagina {{ current_page }} de {{ last_page }} </p>
+        </ion-col>
+
+        <!-- Productos -->
+        <ion-col col-12 col-sm-10 offset-sm-1 (swipe)="paginacion($event)">          
+          <ion-grid>
+            <ion-row justify-content-start>
+              <ion-col col-12 col-sm-4 (click)="detalleProducto(producto)" *ngFor="let producto of productos">
+                <div class="producto" [ngStyle]="{'background': producto.color}">
+                    <p *ngIf="!producto.url_logo"> {{ producto.nombre }} </p>
+                    <img *ngIf="producto.url_logo" [src]="urlImagen + producto.url_logo">
+                </div>                 
+              </ion-col>              
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,182 @@
+medicos{    
+
+    ion-content{
+
+        background: url('/assets/imgs/fondo.png') no-repeat center center / cover;
+    }
+
+    ion-item{
+
+        margin: 0;
+    }
+
+    .buttons{
+        
+        font-size: 10pt;
+        text-transform: inherit;
+        width: 40%;
+    }    
+    
+    #container-busqueda{
+        border-radius: 100px;  
+        box-shadow: 0px 2px 2px #D1D1D1;
+        height: 30px;
+        ion-label{
+            color: #555C66;
+        }
+        ion-icon{
+            border: none !important;
+            font-size: 16pt;
+        }
+        button{    
+            background: transparent;
+            border-left: 1px solid #EDEDED;
+            border-right: 0px;
+            box-shadow: none !important;
+            height: 100%;
+            padding-left: 20px;
+        } 
+    }
+
+    .container-medico ion-label{
+        background: #FFFFFF;
+        border-left: 10px solid #0083C4;
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px #D1D1D1;
+        margin: 0px 8px 13px 0 !important;    
+        div{
+            .info{        
+                align-items: center !important;
+                display: flex;
+                height: 100%;
+            }    
+            span.medico{        
+                border-right: 3px solid #E7E5E6;
+                color: #000000;
+                font-size: 10pt;
+                font-weight: bold;
+                padding-right: 20px;
+                // text-transform: uppercase;
+            }        
+            span.especialidad{        
+                align-items: center;
+                color: #4BB6E5;
+                font-size: 10pt;
+                font-weight: bold;
+                text-align: center;
+                // text-transform: uppercase;
+            }   
+        }
+    }   
+}
+
+// Alerta de agendamiento de médicos
+.alertaAgendamiento{
+    .alert-wrapper{
+        border-radius: 30px;        
+        .alert-head{
+            background: #00A9E2;
+            color: #FFFFFF;     
+            padding: 0;       
+            h2{
+                font-size: 16pt !important;
+                font-weight: normal !important;
+                padding: 10px;
+                text-align: center;
+            }      
+        }
+        .alert-input-group{  
+            margin: 20px 0px -20px 0px;
+        } 
+        .alert-button-group{
+            
+            justify-content: center !important;          
+        } 
+        button{
+
+            border-radius: 20px;
+            width: 45%;
+            span{
+
+            justify-content: center !important;
+            }
+        }      
+        .botonAgendar{
+        
+            background: #0065B3 !important;    
+            color: #FFFFFF !important; 
+            margin: 0 auto;   
+        }
+        
+        .botonCancelarAgenda{
+        
+            background: #03ACE7 !important;
+            color: #FFFFFF !important;
+            margin: 0 auto;   
+        
+        }
+        
+    }
+}
+    
+// Alerta de exito de Agendamiento
+.alertaExitoAgendamiento{
+    .alert-wrapper{
+        border-radius: 30px;        
+        .alert-head{
+            background: #00A9E2;
+            color: #FFFFFF;
+            padding: 0px;         
+            h2{
+                font-size: 16pt !important;
+                font-weight: normal !important;
+                padding: 10px;
+                text-align: center;
+            }      
+        } 
+        .alert-message{
+
+            color: #000000;
+            margin: 20px 0px -10px 0px;
+            text-align: center;
+        }        
+        .alert-button-group{
+            
+            justify-content: center !important;          
+        } 
+        button{
+
+            border-radius: 20px;
+            width: 45%;
+            span{
+
+            justify-content: center !important;
+            }
+        }      
+        .botonAceptar{
+        
+            background: #0065B3 !important;    
+            color: #FFFFFF !important; 
+            margin: 0 auto;   
+        }       
+    }
+}
+
+@media(max-width: 575px){
+
+    .info{
+
+        display: block !important;
+    }
+
+    .alertaAgendamiento .alert-wrapper button, .alertaPresentacion .alert-wrapper button, .alertaExitoAgendamiento .alert-wrapper button{
+        
+        margin-bottom: 20px !important;
+        width: 100%;
+    }
+
+    .container-medico ion-label div span.medico{
+
+        border-right: 0px !important;
+    }
+}

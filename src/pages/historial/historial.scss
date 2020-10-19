@@ -1,0 +1,67 @@
+page-historial {
+  ion-content {
+    background: url("/assets/imgs/fondo.png") no-repeat center center / cover;
+  }
+
+  ion-item {
+    margin: 0;
+  }
+
+  .filtros{
+    margin-top: 60px;
+   // margin: -1px 0 0px !important;
+    ion-item{
+        border-radius: 30px;
+        height: 30px;
+    }
+    ion-item:not(.botones-filtro){
+        box-shadow: 0px 2px 2px #D1D1D1;
+    } 
+    button{
+        font-size: 10pt !important;
+        font-weight: normal !important;
+        height: 0px !important;
+        padding: 19px 0px !important;
+        text-transform: inherit;
+        width: 80%;
+    }
+    ion-item.botones-filtro{
+        background: transparent;
+        button{
+            width: 48%;
+        }
+    }
+}
+
+
+  .container-medico ion-label {
+    background: #ffffff;
+    border-left: 10px solid #0083c4;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px #d1d1d1;
+    margin: 0px 8px 13px 0 !important;
+    div {
+      .info {
+        align-items: center !important;
+        display: flex;
+        height: 100%;
+      }
+      span.medico {
+        border-right: 3px solid #e7e5e6;
+        color: #000000;
+        font-size: 10pt;
+        font-weight: bold;
+        padding-right: 20px;
+        // text-transform: uppercase;
+      }
+      span.especialidad {
+        align-items: center;
+        color: #4bb6e5;
+        font-size: 10pt;
+        font-weight: bold;
+        text-align: center;
+        // text-transform: uppercase;
+      }
+    }
+  }
+}

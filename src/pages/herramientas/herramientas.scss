@@ -1,0 +1,34 @@
+page-herramientas {
+
+    .container-medico ion-label{
+        background: #FFFFFF;
+        //border-left: 10px solid #0083C4;
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px #D1D1D1;
+        margin: 0px 8px 13px 0 !important;    
+        div{
+            .info{        
+                align-items: center !important;
+                display: flex;
+                height: 100%;
+            }    
+            span.medico{        
+                border-right: 3px solid #E7E5E6;
+                color: #000000;
+                font-size: 10pt;
+                font-weight: bold;
+                padding-right: 20px;
+                // text-transform: uppercase;
+            }        
+            span.especialidad{        
+                align-items: center;
+                color: #4BB6E5;
+                font-size: 10pt;
+                font-weight: bold;
+                text-align: center;
+                // text-transform: uppercase;
+            }   
+        }
+    }
+
+}

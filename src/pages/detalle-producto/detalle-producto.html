@@ -1,0 +1,54 @@
+<ion-header [@itemState]='menuProductosState'>
+
+  <ion-navbar color="primary">
+    <!-- <ion-title> <p [ngStyle]="{'color': producto.color}">{{ producto.nombre }} </p> </ion-title> -->
+    <ion-title> Productos </ion-title>
+    <img class="logo-header" src="/assets/imgs/logo-header.png" alt="">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <!-- Gestion de Menu de productos -->
+  <div id="gestion-menu-productos"
+    [ngClass]="{'enable': menuProductosState == 'enable', 'disable': menuProductosState == 'disable'}"
+    (click)="menuProductos()">
+    <ion-icon *ngIf="menuProductosState == 'disable'" name="arrow-round-down"></ion-icon>
+    <ion-icon *ngIf="menuProductosState == 'enable'" name="arrow-round-up"></ion-icon>
+  </div>
+
+  <!-- <iframe *ngIf="hayArchivo" [src]="urlArchivo" width="100%" height="100%"></iframe> -->
+
+  <!-- <pdf-viewer *ngIf="hayArchivo" 
+  [original-size]="false"
+  [src]="urlArchivo"       
+  [zoom]="zoomVisor"  
+  style="display: block"
+  (on-progress)="pdfLoading($event)"
+  (after-load-complete)="pdfLoadedPage($event)">
+  </pdf-viewer> -->
+  <img *ngIf="hayArchivo" [src]="urlArchivo">
+
+  <!-- <p *ngIf="!hayArchivo" text-center id="advertencia"> No hay archivo asociado </p> -->
+  <p id="sin-registros">
+    <img *ngIf="!hayArchivo" src="/assets/imgs/sin-registros.png" alt="">
+  </p>
+
+  <!-- Acciones -->
+  <!-- <ion-fab bottom right>
+    <button class="botones-acciones" ion-fab>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button class="botones-acciones" ion-fab (click)="zoomIn()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button class="botones-acciones" ion-fab (click)="zoomOut()">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab> -->
+
+</ion-content>

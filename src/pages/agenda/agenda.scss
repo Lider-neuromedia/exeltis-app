@@ -1,0 +1,248 @@
+agenda {
+    
+    ion-content{
+
+        background: url('/assets/imgs/fondo.png');
+    }
+
+    .buttons{
+        font-size: 10pt;
+        text-transform: inherit;
+    }
+
+    // Calendario
+    .calendar{
+        background: linear-gradient(45deg, #00ABE3, #0066B1);
+        padding: 20px;    
+        [col-1] {
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 8.33333%;
+            -ms-flex: 0 0 8.33333%;
+            flex: 0 0 14.285714285714286%;
+            width: 14.285714285714286%;
+            max-width: 14.285714285714286%;
+        }
+        .col {
+            text-align: center;
+            padding: 5px;
+        }
+        .last-month, .next-month {
+            color: #BDBDBD;
+            font-size: 90%;
+        }
+        .currentDate, .otherDate {
+            padding: 5px;
+        }
+        .currentDate {
+            background-color: #FFFFFF;
+            border-radius: 50px;
+            color: #0083C4;
+            padding: 0.5em 0.6em;
+        }
+        .calendar-header {
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            #mesActual{
+                font-size: 14pt;
+                text-transform: uppercase;
+            }
+        }
+        .diaAgendado span{
+            border: 2px solid #FFFFFF;
+            border-radius: 50px;
+            padding: 0.5em 0.6em;
+            text-align: center;
+        }
+        .event-bullet {
+            margin: 2px auto;
+            height: 5px;
+            width: 5px;
+            background-color: green;
+            border-radius: 30px;
+        }
+        .selected-date {
+            width: 20px;
+            height: 2px;
+            background-color: blue;
+        }
+        .unselected-date {
+            border: none;
+        }
+        .calendar-body {
+            .grid {
+                padding: 0;
+            }
+            .col:last-child {
+                border-right: none;
+            }
+            .calendar-weekday, .calendar-date {
+                text-align: center;
+                margin: 0;
+            }
+            .calendar-weekday {
+                color: #FFF;
+                // font-weight: bold;
+                // border-bottom: solid 1px #1a732d;
+                // background-color: #26ab56;
+            }
+            .calendar-date {
+                color: #FFF;
+                // border-top: solid 1px #1a732d;
+                // border-bottom: solid 1px #1a732d;
+            }
+        }
+    }
+
+    // Visitas
+    #listado-visitas{        
+        p#diaConsultado{
+
+            color: #7C8188;
+            font-size: 12pt;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .container-medico ion-label{
+            background: #FFFFFF;
+            border-left: 10px solid #0083C4;
+            border-radius: 10px;
+            box-shadow: 0px 2px 2px #D1D1D1;
+            margin: 0px 8px 13px 0 !important;      
+            div{
+                .info{    
+                    align-items: center !important;
+                    display: flex;
+                    height: 100%;
+                }    
+                span.medico{    
+                    border-right: 3px solid #E7E5E6;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: bold;
+                    padding-right: 20px;
+                    // text-transform: uppercase;
+                }    
+                span.especialidad{    
+                    color: #4BB6E5;
+                    display: flex;
+                    font-size: 10pt;
+                    font-weight: bold;
+                    // text-transform: uppercase;
+                }
+            }    
+        }   
+
+        .icono-visita-terminada{
+
+            color: green;
+            float: right;
+            font-size: 20pt;
+        }
+    }
+
+}
+
+// Alerta de agendamiento de médicos
+.alertaAgendamiento{
+    .alert-wrapper{
+        border-radius: 30px;        
+        .alert-head{
+            background: #00A9E2;
+            color: #FFFFFF;            
+            h2{
+                font-size: 16pt !important;
+                font-weight: normal !important;
+                padding: 10px;
+                text-align: center;
+            }      
+        }
+        .alert-input-group{  
+            margin: 20px 0px -10px 0px;
+        } 
+        .alert-button-group{
+            
+            justify-content: center !important;          
+        } 
+        button{
+
+            border-radius: 20px;
+            width: 45%;
+            span{
+
+            justify-content: center !important;
+            }
+        }      
+        .botonAgendar{
+        
+            background: #0065B3 !important;    
+            color: #FFFFFF !important; 
+            margin: 0 auto;   
+        }
+        
+        .botonCancelarAgenda{
+        
+            background: #03ACE7 !important;
+            color: #FFFFFF !important;
+            margin: 0 auto;   
+        
+        }
+        
+    }
+}
+    
+// Alerta de exito de Agendamiento
+.alertaExitoAgendamiento{
+    .alert-wrapper{
+        border-radius: 30px;        
+        .alert-head{
+            background: #00A9E2;
+            color: #FFFFFF;            
+            h2{
+                font-size: 16pt !important;
+                font-weight: normal !important;
+                padding: 10px;
+                text-align: center;
+            }      
+        } 
+        .alert-message{
+
+            color: #000000;
+            margin: 20px 0px -10px 0px;
+            text-align: center;
+        }        
+        .alert-button-group{
+            
+            justify-content: center !important;          
+        } 
+        button{
+
+            border-radius: 20px;
+            width: 45%;
+            span{
+
+            justify-content: center !important;
+            }
+        }      
+        .botonAceptar{
+        
+            background: #0065B3 !important;    
+            color: #FFFFFF !important; 
+            margin: 0 auto;   
+        }       
+    }
+}
+
+@media(max-width: 575px){
+
+    .info{
+
+        display: block !important;
+    }
+
+    .alertaAgendamiento .alert-wrapper button, .alertaPresentacion .alert-wrapper button, .alertaExitoAgendamiento .alert-wrapper button{
+        
+        margin-bottom: 20px !important;
+        width: 100%;
+    }
+}

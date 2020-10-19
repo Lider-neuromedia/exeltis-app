@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Calendario</ion-title>
+      <img class="logo-header" src="/assets/imgs/logo-header.png" alt="">
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+
+  <!-- Calendario -->
+  <div class="calendar">
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+        <ion-col id="mesActual" col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Domingo</ion-col>
+          <ion-col>Lunes</ion-col>
+          <ion-col>Martes</ion-col>
+          <ion-col>Miercoles</ion-col>
+          <ion-col>Jueves</ion-col>
+          <ion-col>Viernes</ion-col>
+          <ion-col>Sabado</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col (click)="visitasDia(lastDay, -1)" col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+          <ion-col [ngClass]="{'diaAgendado': diasAgendadosMes.indexOf(day) >= 0}" (click)="visitasDia(day, 0)" col-1 *ngFor="let day of daysInThisMonth">
+            <span>
+              <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+              <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+            </span>
+          </ion-col>
+          <ion-col (click)="visitasDia(nextDay, 1)" col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <!-- Visitas -->
+  <div id="listado-visitas">
+    <ion-col col-12>
+      <p id="diaConsultado"> {{ selectedMonth }} {{ selectedDay }} {{ currentYear }} </p>
+      <p id="sin-registros">
+        <img *ngIf="visitas.length == 0" src="/assets/imgs/sin-registros.png" alt="">
+      </p>
+      <ion-list class="container-medico" no-lines>
+        <ion-item *ngFor="let visita of visitas" color="transparent" text-wrap>
+          <div text-center>
+            <ion-grid>
+              <ion-row>          
+                <ion-col col-12 col-sm-4>
+                  <span class="info medico"> {{ visita.nombre_medico | titlecase }} </span>
+                </ion-col>
+                <ion-col col-12 col-sm-2>
+                  <span class="info especialidad"> {{ visita.especialidad | titlecase }} </span>
+                </ion-col>
+                <ion-col col-12 col-sm-6>
+                  <button (click)="presentacion(visita)" class="buttons" color="boton-presentacion-medicos" ion-button round>Presentación</button>
+                  <button (click)="reagendar(visita)" class="buttons" color="primary" ion-button round>Reagendar</button>
+                  <ion-icon *ngIf="visita.visita_terminada == 1" class="icono-visita-terminada" name="checkmark"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-item>          
+      </ion-list>
+    </ion-col>
+  </div>
+</ion-content>

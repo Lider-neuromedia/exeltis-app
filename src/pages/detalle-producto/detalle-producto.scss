@@ -1,0 +1,32 @@
+detalle-producto {
+
+    ion-content{
+
+        // Botón de Gestión de Productos
+        #gestion-menu-productos{
+
+            background: #488AFF;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 80px;
+            z-index: 1000;
+            ion-icon{
+                color: #FFF;
+                font-size: 2.2em;
+            }
+        }
+        #gestion-menu-productos.disable{
+            top: 8px;
+        }
+        #gestion-menu-productos.enable{
+            top: 64px;
+        }
+
+        background: url("/assets/imgs/fondo.png") no-repeat center center / cover;
+    }
+}

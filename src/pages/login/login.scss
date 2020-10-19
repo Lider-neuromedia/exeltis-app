@@ -1,0 +1,81 @@
+login{
+
+    ion-content{
+
+        background: url('/assets/imgs/fondo.png') no-repeat center center / cover;
+        ion-grid{
+
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+        }
+    }
+    
+    img.icons{
+
+        width: 33px;
+    }
+
+    .inputs{
+
+        background-color: transparent;
+        padding-left: 0 !important;
+    }    
+
+    .button-login{
+
+        padding: 25px 82px;
+    }
+
+    #mensaje{
+
+        background-color: red;
+        color: #FFF;
+        font-size: 12pt;
+        padding: 10px;
+        text-align: center;
+    }    
+}
+
+.loginFallido{
+    .alert-wrapper{
+        border-radius: 30px;        
+        .alert-head{
+            background: #00A9E2;
+            color: #FFFFFF;   
+            padding: 0px;            
+            h2{
+                font-size: 16pt !important;
+                font-weight: normal !important;
+                padding: 10px;
+                text-align: center;
+            }      
+        }  
+        .alert-message{
+
+            color: #000000;
+            margin: 20px 0px -10px 0;
+            text-align: center;
+        } 
+        .alert-button-group{
+            
+            justify-content: center !important;          
+        } 
+        button{
+
+            border-radius: 20px;
+            width: 45%;
+            span{
+
+                justify-content: center !important;
+            }
+        }      
+        .botonAceptar{
+        
+            background: #0065B3 !important;    
+            color: #FFFFFF !important; 
+            margin: 0 auto;   
+        }       
+    }
+}

@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 offset-1>
+
+        <div text-center>
+          <img src="assets/imgs/login/logo.png">
+        </div>
+
+        <ion-item class="inputs">
+          <ion-label floating color="text">
+            <img class="icons" src="/assets/imgs/login/usuario.png">
+            Usuario
+          </ion-label>
+          <ion-input [(ngModel)]="auth.username" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="inputs">
+          <ion-label floating color="text">
+            <img class="icons" src="/assets/imgs/login/password.png">
+            Contraseña
+          </ion-label>
+          <ion-input [(ngModel)]="auth.password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-col col-10 offset-1>
+          <div id="mensaje" *ngIf="errorLogin">
+            Datos incorrectos
+          </div>
+        </ion-col>
+
+        <div text-center class="margin-30">
+          <button (click)="autenticacion()" class="button-login"
+            [disabled]="auth.username.length === 0 || auth.password === 0" ion-button round> INICIAR SESIÓN </button>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

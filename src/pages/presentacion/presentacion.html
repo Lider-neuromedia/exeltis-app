@@ -1,0 +1,73 @@
+<ion-header [@itemState]='menuProductosState'>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> PRESENTACIÓN PRODUCTOS - {{ medico.nombre_medico }} </ion-title>
+
+    <img class="logo-header" src="/assets/imgs/logo-header.png">
+  </ion-navbar>
+</ion-header>
+
+<ion-content [hidden]=cargando>
+
+  <!-- Listado de Productos -->
+  <ion-grid id="menu-productos" no-padding [@itemState]='menuProductosState'>
+    <ion-row>
+      <ion-col *ngFor="let producto of productos; let i = index">
+        <div (click)="cargarProducto(producto, i)" class="producto"
+          [ngClass]="{'producto-abierto': producto.opened, 'producto-cerrado': !producto.opened}"
+          [ngStyle]="{'background-color': producto.color}">
+          <p style="color:#FFFFFF !important;" *ngIf="!producto.url_logo">{{ producto.nombre }}</p>
+          <img *ngIf="producto.url_logo" [src]="urlImagen + producto.url_logo">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Gestion de Menu de productos -->
+  <div id="gestion-menu-productos"
+    [ngClass]="{'enable': menuProductosState == 'enable', 'disable': menuProductosState == 'disable'}"
+    (click)="menuProductos()">
+    <ion-icon *ngIf="menuProductosState == 'disable'" name="arrow-round-down"></ion-icon>
+    <ion-icon *ngIf="menuProductosState == 'enable'" name="arrow-round-up"></ion-icon>
+  </div>
+
+  <!-- Visor de archivos -->
+
+  <img *ngIf="hayArchivo" [src]="urlArchivo" (swipe)="paginacion($event)">
+
+  <!-- Navegación de productos para visor -->
+  <button ion-button ion-fixed (click)="navegacionProductos('-')" class="navegacion-productos"
+    [disabled]="indiceProductoAbierto <= 0">
+    <ion-icon name="arrow-round-back"></ion-icon>
+  </button>
+  <button ion-button ion-fixed (click)="navegacionProductos('+')" class="navegacion-productos" id="siguiente"
+    [disabled]="indiceProductoAbierto >= productos.length -1">
+    <ion-icon name="arrow-round-forward"></ion-icon>
+  </button>
+
+  <!-- <p *ngIf="!hayArchivo" text-center id="advertencia"> No hay archivo asociado </p> -->
+  <img *ngIf="!hayArchivo" src="/assets/imgs/sin-registros.png" (swipe)="paginacion($event)">
+
+  <ion-fab bottom left>
+    <button mini color="secondary" *ngIf="!presentando" (click)="presentacion()" ion-fab>
+      <ion-icon name="play"></ion-icon>
+    </button>
+
+    <button mini color="danger" *ngIf="presentando" (click)="cerrarPresentacion()" ion-fab>
+      <ion-icon name="square"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
+
+<ion-content *ngIf="cargando">
+  <ion-grid padding>
+    <ion-row padding>
+      <ion-col align="center">
+        <ion-spinner name="crescent"></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

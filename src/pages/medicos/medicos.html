@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Médicos Asignados </ion-title>
+    <img class="logo-header" src="/assets/imgs/logo-header.png" alt="">
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <!-- busqueda -->
+      <ion-col offset-sm-2 col-12 col-sm-8>
+        <ion-list no-lines>
+          <ion-item id="container-busqueda">
+            <ion-input [(ngModel)]="busqueda" placeholder="Buscador de medicos asignados" type="text">
+            </ion-input>
+            <button (click)="buscar()" ion-button icon-only item-end>
+              <ion-icon color="icons" name="search"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <!-- Información Paginación -->
+      <ion-col col-12>
+        <div *ngIf="medicos.length > 0" class="progress">
+          <div [ngStyle]="{'width': paginationProgress}"></div>
+        </div>
+        <p *ngIf="medicos.length > 0" class="infoPaginacion"> Página {{ current_page }} De {{ last_page }} </p>
+      </ion-col>
+
+      <!-- medicos -->
+      <ion-col col-12>
+        <ion-list no-lines>
+          <ion-item class="container-medico" *ngFor="let medico of medicos" color="transparent"
+            (swipe)="paginacion($event)" text-wrap>
+            <div text-center>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12 col-sm-4>
+                    <span class="info medico"> {{ medico.nombre_medico | titlecase }} </span>
+                  </ion-col>
+                  <ion-col col-12 col-sm-2>
+                    <span class="info especialidad"> {{ medico.especialidad | titlecase }} </span>
+                  </ion-col>
+                  <ion-col col-12 col-sm-6>
+                    <button (click)="presentacion(medico)" class="buttons" color="boton-presentacion-medicos" ion-button
+                      round>Presentación</button>
+                    <button (click)="agendar(medico)" class="buttons" color="primary" ion-button round>Agendar</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

@@ -1,0 +1,82 @@
+<!--
+  Generated template for the HerramientasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Off Line </ion-title>
+    <img class="logo-header" src="/assets/imgs/logo-header.png" alt="">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row>
+  
+          <!-- Filtros de Búsqueda -->
+          <ion-col col-12 col-sm-10 offset-sm-1>
+  
+            <ion-list no-lines class="filtros">
+  
+              <ion-grid>
+                <ion-row>
+  
+                  <ion-col col-12 col-sm-6 col-lg-3>
+  
+                    <ion-item>
+                        <ion-label>Trabajar sin conexión</ion-label>
+                        <ion-toggle [(ngModel)]="offline" (ionChange)="setOffline($event)"></ion-toggle>
+                    </ion-item>
+  
+                  </ion-col>
+  
+
+                  <!-- <ion-col offset-sm-2 col-12 col-sm-8>
+  
+                    <p>Subir y actualizar los registros de las visitas realizadas sin conexión</p>
+                    <button (click)="uploadData()" class="buttons" ion-button round>
+                        Sincronizar registros</button>   
+  
+                  </ion-col> -->
+  
+                </ion-row>
+
+                <ion-item class="container-medico" color="transparent" text-wrap>
+                  <div text-center>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-12 col-sm-4>
+                          <span class="info medico">Subir y actualizar los registros de las visitas realizadas sin conexión</span>
+                        </ion-col>
+                        <ion-col col-12 col-sm-6>
+                          <button [disabled]="!isenabled" (click)="uploadData()" class="buttons" ion-button round>
+                              Sincronizar registros</button>
+                          <!-- <button  class="buttons" color="boton-presentacion-herramientass" ion-button round>Presentación</button>
+                          <button  class="buttons" color="primary" ion-button round>Agendar</button> -->
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                </ion-item>
+
+              </ion-grid>
+            
+            </ion-list>
+  
+          </ion-col>
+  
+          
+  
+        </ion-row>
+      </ion-grid>
+
+</ion-content>

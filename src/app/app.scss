@@ -1,0 +1,217 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face{
+
+    font-family: 'Roboto';
+    src: url('/assets/fonts/roboto/Roboto-Regular.ttf')
+}
+
+@font-face{
+
+    font-family: 'Roboto-Light';
+    src: url('/assets/fonts/roboto/Roboto-Light.ttf')
+}
+
+p, span, div{
+
+    font-family: 'Roboto' !important;
+    font-weight: 400 !important;
+}
+
+.logo-header{
+
+    position: absolute;
+    right: 28px;
+    top: 5px;
+    width: 100px;
+}
+
+.margin-30{
+
+    padding-top: 30px;
+}
+
+// Menú
+    .menu ion-content{
+        
+        background: linear-gradient(45deg, #00ABE3, #0168B5);
+        button{
+
+            background-color: transparent;
+            color: #FFFFFF;
+        }
+        ion-list button{
+
+            padding-right: 16px !important;
+            img.menu-icons{
+                width: 30px;
+            }
+            p{
+                color: #FFFFFF;
+                display: inline-block;
+            }
+        }
+        #logo-menu{
+
+            margin: 15px 0 45px 0;
+            img{
+                width: 180px;
+            }
+            p{
+                color: #FFFFFF;
+                font-size: 10pt;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }
+
+// Paginación
+    .infoPaginacion{
+
+        color: #488AFF;
+        font-size: 10pt;
+        font-weight: bold;
+        margin: 5px 20px 10px 20px;
+        text-align: right;
+    }
+
+    .progress{
+
+        background: #D7E6FF;
+        height: 4px;
+        margin: 0 20px;
+        div{
+            background: #0066B1;
+            height: 4px;
+        }
+    }
+
+// placeholder campos
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        font-size: 10pt;
+    }
+
+// Campos select
+    ion-item.item-select ion-label{
+
+        font-size: 10pt;
+    }
+
+// Campos Fecha
+    input[type="date"]:before {
+        
+        content: attr(placeholder) !important;
+        color: #0053AC;
+        margin-right: 0.5em;
+    }
+
+    input[type="date"]:focus:before,
+    input[type="date"]:valid:before {
+
+        content: "";
+    }
+
+// Titulo de las paginas
+    .toolbar-title{
+
+        font-size: 14px !important;
+        padding: 0 6px !important;
+    }
+
+//  Alerta de presentación de productos
+    .alertaPresentacion{
+        .alert-wrapper{
+            border-radius: 30px;        
+            .alert-head{
+                background: #00A9E2;
+                color: #FFFFFF;    
+                padding: 0px;        
+                h2{
+                    font-size: 16pt !important;
+                    font-weight: normal !important;
+                    padding: 10px;
+                    text-align: center;
+                }      
+            }  
+            .alert-message{
+
+                color: #000000;
+                margin: 20px 0px -10px 0;
+                text-align: center;
+            } 
+            .alert-button-group{
+                
+                justify-content: center !important;          
+            } 
+            button{
+
+                border-radius: 20px;
+                width: 45%;
+                span{
+
+                    justify-content: center !important;
+                }
+            }      
+            .botonCancelarPresentacion{
+            
+                background: #03ACE7 !important;    
+                color: #FFFFFF !important; 
+                margin: 0 auto;   
+            }
+            
+            .botonAceptarPresentacion{
+            
+                background: #0065B3 !important;
+                color: #FFFFFF !important;
+                margin: 0 auto;        
+            }
+            
+        }
+    }
+
+// Imagen para cuando no hay información
+    p#sin-registros{
+        text-align: center;
+        img{
+            padding: 20px;
+            width: 300px;
+        }
+    }
+
+// Acciones para visor de documentos
+    .botones-acciones{
+
+        background: linear-gradient(90deg, rgba(0,163,222,.5), rgba(0,104,178,.5));
+        color: #FFF;
+    }
+
+    // Campos tipo select
+
+    // .action-sheet-wrapper{
+
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     .action-sheet-title{
+    
+    //         background: #488aff;
+    //         padding: 11px 16px 17px;
+    //     }
+    // }
+    
